@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-if (process.argv.length != 3) {
+if (process.argv.length !== 3) {
   process.exit(1);
 }
 
