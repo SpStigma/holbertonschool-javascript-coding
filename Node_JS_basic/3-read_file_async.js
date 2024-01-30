@@ -6,12 +6,12 @@ function countStudents(path) {
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
-        const lines = data.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
+        const lines = data.split('\n').filter((line) => line.trim() !== ''); // Remove empty lines
         const NUMBER_OF_STUDENTS = lines.length - 1;
         console.log(`Number of students: ${NUMBER_OF_STUDENTS}`);
 
         const header = lines[0].split(',');
-        const rows = lines.slice(1).map(line => line.split(','));
+        const rows = lines.slice(1).map((line) => line.split(','));
 
         const FirstNameCS = [];
         const FirstNameSWE = [];
