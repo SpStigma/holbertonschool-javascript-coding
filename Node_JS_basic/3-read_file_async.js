@@ -7,8 +7,8 @@ function countStudents(path) {
         reject(new Error('Cannot load the database'));
       } else {
         const lines = data.split('\n').filter((line) => line.trim() !== ''); // Remove empty lines
+
         const NUMBER_OF_STUDENTS = lines.length - 1;
-        console.log(`Number of students: ${NUMBER_OF_STUDENTS}`);
 
         const header = lines[0].split(',');
         const rows = lines.slice(1).map((line) => line.split(','));
@@ -32,9 +32,10 @@ function countStudents(path) {
           }
         });
 
-        console.log(`Number of students in CS: ${NbrCs}. List: ${FirstNameCS.join(', ')}`);
-        console.log(`Number of students in SWE: ${NbrSwe}. List: ${FirstNameSWE.join(', ')}`);
-        resolve();
+        const result = `Number of students: ${NUMBER_OF_STUDENTS}\nNumber of students in CS: ${NbrCs}. List: ${FirstNameCS.join(', ')}\nNumber of students in SWE: ${NbrSwe}. List: ${FirstNameSWE.join(', ')}`;
+
+        console.log(result);
+        resolve(result);
       }
     });
   });
