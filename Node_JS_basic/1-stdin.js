@@ -39,5 +39,5 @@ process.stdin.on('readable', () => {
 });
 
 process.stdin.on('end', () => {
-  process.stdin.out('This important software is now closing');
+  process.stdin.write('This important software is now closing');
 });
