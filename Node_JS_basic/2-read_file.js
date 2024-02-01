@@ -4,12 +4,12 @@ function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
 
-    const line = data.split('\n');
-    const NUMBER_OF_STUDENTS = line.length - 1;
+    const lines = data.split('\n');
+    const NUMBER_OF_STUDENTS = lines.length - 1;
     console.log(`Number of students: ${NUMBER_OF_STUDENTS}`);
 
-    const header = line[0].split(',');
-    const rows = line.slice(1).map((lines) => lines.split(','));
+    const header = lines[0].split(',');
+    const rows = lines.slice(1).map((line) => line.split(','));
     const FirstNameCS = [];
     const FirstNameSWE = [];
     let NbrCs = 0;
@@ -30,7 +30,7 @@ function countStudents(path) {
     });
 
     console.log(`Number of students in CS: ${NbrCs}. List: ${FirstNameCS.join(', ')}`);
-    console.log(`Number of students in SWE: ${NbrSwe}. List: ${FirstNameSWE}`);
+    console.log(`Number of students in SWE: ${NbrSwe}. List: ${FirstNameSWE.join(', ')}`);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
