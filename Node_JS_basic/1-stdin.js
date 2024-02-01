@@ -1,4 +1,4 @@
-process.stdin.setEncoding('utf8');
+/* process.stdin.setEncoding('utf8');
 
 function getUserInput() {
     return new Promise((resolve) => {
@@ -18,7 +18,6 @@ function endOfRead() {
       });
 }
 
-
 async function main() {
     console.log('Welcome to Holberton School, what is your name?')
     const userInput = await getUserInput();
@@ -27,7 +26,18 @@ async function main() {
 
 }
 
-main()
+main() */
 
+process.stdin.setEncoding('utf-8');
 
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
+process.stdin.on('readable', () => {
+  const userInput = process.stdin.read();
+  if (userInput != null) {
+    process.stdout.write(`Your name is: ${userInput}`);
+  }
+});
 
+process.stdin.on('end', () => {
+  process.stdin.out('This important software is now closing');
+});
