@@ -1,3 +1,4 @@
+/* eslint-disable */
 const fs = require('fs');
 const http = require('http');
 const port = 1245;
